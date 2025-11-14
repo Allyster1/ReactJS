@@ -5,4 +5,4 @@
 -  [x] Cleanup default react app
 -  [x] Add template resources to public folder
 -  [x] Add HTML to App.jsx component
--  [] Cleanup JSX Errors
+-  [x] Cleanup JSX Errors
