@@ -1,0 +1,4 @@
+## Exercise
+
+- [x] Find free html template `https://templatemo.com/tm-563-seo-dream`
+- [x] Init react app `npm create vite .`
