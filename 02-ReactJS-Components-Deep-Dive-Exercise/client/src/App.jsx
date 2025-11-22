@@ -1,9 +1,9 @@
+import { useState, useEffect } from "react";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import Search from "./components/Search.jsx";
 import UserList from "./components/UserList.jsx";
 import Pagination from "./components/Pagination.jsx";
-import { useState, useEffect } from "react";
 import CreateUserModal from "./components/CreateUserModal.jsx";
 
 function App() {
@@ -41,6 +41,7 @@ function App() {
          streetNumber,
       };
       userData.createdAt = new Date().toISOString();
+      userData.updatedAt = new Date().toISOString();
 
       fetch("http://localhost:3030/jsonstore/users", {
          method: "POST",
@@ -49,7 +50,10 @@ function App() {
          },
          body: JSON.stringify(userData),
       })
-         .then(() => setForceRefresh((state) => !state))
+         .then(() => {
+            closeUserModalHandler();
+            setForceRefresh((state) => !state);
+         })
          .catch((err) => alert(err.message));
    };
 
