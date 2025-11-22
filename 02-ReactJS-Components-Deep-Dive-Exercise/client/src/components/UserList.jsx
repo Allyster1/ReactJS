@@ -1,18 +1,6 @@
-import { useEffect, useState } from "react";
 import UserItem from "./UserItem.jsx";
 
-export default function UserList() {
-   const [users, setUsers] = useState([]);
-
-   useEffect(() => {
-      fetch("http://localhost:3030/jsonstore/users")
-         .then((res) => res.json())
-         .then((data) => {
-            setUsers(Object.values(data));
-         })
-         .catch((err) => alert(err.message));
-   }, []);
-
+export default function UserList({ users }) {
    return (
       <div className="table-wrapper">
          {/* Overlap components */}
