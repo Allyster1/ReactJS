@@ -31,6 +31,7 @@ export default function UserItem({ _id, firstName, lastName, email, phoneNumber,
                   ></path>
                </svg>
             </button>
+
             <button className="btn delete-btn" title="Delete">
                <svg
                   aria-hidden="true"
@@ -48,6 +49,7 @@ export default function UserItem({ _id, firstName, lastName, email, phoneNumber,
                   ></path>
                </svg>
             </button>
+
             <button className="btn info-btn" title="Info">
                <svg
                   aria-hidden="true"
