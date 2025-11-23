@@ -8,7 +8,8 @@ export default function UserItem({
    phoneNumber,
    createdAt,
    imageUrl,
-   detailsActionClickHandler,
+   onDetailsClick,
+   onDeleteClick,
 }) {
    return (
       <tr>
@@ -41,7 +42,7 @@ export default function UserItem({
                </svg>
             </button>
 
-            <button className="btn delete-btn" title="Delete">
+            <button className="btn delete-btn" title="Delete" onClick={() => onDeleteClick(_id)}>
                <svg
                   aria-hidden="true"
                   focusable="false"
@@ -59,7 +60,7 @@ export default function UserItem({
                </svg>
             </button>
 
-            <button className="btn info-btn" title="Info" onClick={() => detailsActionClickHandler(_id)}>
+            <button className="btn info-btn" title="Info" onClick={() => onDetailsClick(_id)}>
                <svg
                   aria-hidden="true"
                   focusable="false"
