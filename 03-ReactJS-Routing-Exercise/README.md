@@ -10,4 +10,4 @@
 -  [x] Add BrowserRouter Component
 -  [x] Add Routes
 -  [x] Dynamic Navigation
--  [] Create dynamic catalog
+-  [x] Create dynamic catalog
