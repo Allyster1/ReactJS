@@ -4,7 +4,7 @@ import Footer from "./components/Footer.jsx";
 import Search from "./components/Search.jsx";
 import UserList from "./components/UserList.jsx";
 import Pagination from "./components/Pagination.jsx";
-import CreateUserModal from "./components/CreateUserModal.jsx";
+import UserSaveModal from "./components/UserSaveModal.jsx";
 
 function App() {
    const [users, setUsers] = useState([]);
@@ -78,7 +78,7 @@ function App() {
                <Pagination />
             </section>
 
-            {showCreateUser && <CreateUserModal onClose={closeUserModalHandler} onSubmit={addUserSubmitHander} />}
+            {showCreateUser && <UserSaveModal onClose={closeUserModalHandler} onSubmit={addUserSubmitHander} />}
          </main>
 
          <Footer />
