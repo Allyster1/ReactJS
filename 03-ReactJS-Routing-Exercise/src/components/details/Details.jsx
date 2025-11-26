@@ -18,7 +18,7 @@ export default function Details() {
    }, [gameId]);
 
    const deleteGameHandler = async () => {
-      const isConfirmed = confirm(`Are you sure you want to delete game: ${game.title}`);
+      const isConfirmed = confirm(`Are you sure you want to delete: ${game.title}`);
 
       if (!isConfirmed) return;
 
