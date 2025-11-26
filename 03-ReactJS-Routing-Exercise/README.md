@@ -18,3 +18,4 @@
 ## Bonus
 
 -  [x] Add Game functionality
+-  [x] Requester
