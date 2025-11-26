@@ -9,4 +9,5 @@
 -  [x] Add react router `npm i react-router`
 -  [x] Add BrowserRouter Component
 -  [x] Add Routes
--  [] Dynamic Navigation
+-  [x] Dynamic Navigation
+-  [] Create dynamic catalog
