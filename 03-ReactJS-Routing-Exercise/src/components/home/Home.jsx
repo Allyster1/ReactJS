@@ -1,4 +1,24 @@
+import { useEffect, useState } from "react";
+import GameCard from "../gane/GameCard";
+
+const API_URL = "http://localhost:3030/jsonstore/games";
+
 export default function Home() {
+   const [latestGames, setLatestGames] = useState([]);
+
+   useEffect(() => {
+      fetch(API_URL)
+         .then((response) => response.json())
+         .then((result) => {
+            const resultGames = Object.values(result)
+               .sort((a, b) => b._createdOn - a._createdOn)
+               .slice(0, 3);
+
+            setLatestGames(resultGames);
+         })
+         .catch((err) => alert(err.message));
+   }, []);
+
    return (
       <section id="welcome-world">
          <div className="welcome-message">
@@ -13,35 +33,11 @@ export default function Home() {
             <div id="latest-wrap">
                {/* Game list */}
                <div className="home-container">
-                  <div className="game">
-                     <img src="./images/witcher.png" alt="The Witcher 3" />
-                     <div className="details-overlay">
-                        <p className="name">The Witcher 3</p>
-                        <p className="genre">Open World</p>
-                        <button className="details-button">Details</button>
-                     </div>
-                  </div>
+                  {latestGames.length === 0 && <p className="no-articles">No games yet</p>}
 
-                  <div className="game">
-                     <img src="./images/elden ring.png" alt="Elden Ring" />
-                     <div className="details-overlay">
-                        <p className="name">Elden Ring</p>
-                        <p className="genre">Action RPG</p>
-                        <button className="details-button">Details</button>
-                     </div>
-                  </div>
-
-                  <div className="game">
-                     <img src="./images/minecraft.png" alt="Minecraft" />
-                     <div className="details-overlay">
-                        <p className="name">Minecraft</p>
-                        <p className="genre">Sandbox</p>
-                        <button className="details-button">Details</button>
-                     </div>
-                  </div>
-
-                  {/* If no games: */}
-                  {/* <p className="no-articles">No games yet</p> */}
+                  {latestGames.map((game) => (
+                     <GameCard key={game._id} {...game} />
+                  ))}
                </div>
             </div>
          </div>

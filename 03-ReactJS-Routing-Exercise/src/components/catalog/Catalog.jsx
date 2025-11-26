@@ -7,17 +7,27 @@ export default function Catalog() {
    const [games, setGames] = useState([]);
 
    useEffect(() => {
-      (async () => {
-         try {
-            const response = await fetch(API_URL);
-            const result = await response.json();
-
+      fetch(API_URL)
+         .then((response) => response.json())
+         .then((result) => {
             setGames(Object.values(result));
-         } catch (err) {
-            alert(err.message);
-         }
-      })();
+         })
+         .catch((err) => alert(err.message));
    }, []);
+
+   // Async method
+   //  useEffect(() => {
+   //     (async () => {
+   //        try {
+   //           const response = await fetch(API_URL);
+   //           const result = await response.json();
+
+   //           setGames(Object.values(result));
+   //        } catch (err) {
+   //           alert(err.message);
+   //        }
+   //     })();
+   //  }, []);
 
    return (
       <section id="catalog-page">

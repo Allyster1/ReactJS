@@ -10,4 +10,5 @@
 -  [x] Add BrowserRouter Component
 -  [x] Add Routes
 -  [x] Dynamic Navigation
--  [x] Create dynamic catalog
+-  [x] Dynamic catalog
+-  [x] Dynamic Home Latest Games
