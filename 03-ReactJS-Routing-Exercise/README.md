@@ -12,3 +12,4 @@
 -  [x] Dynamic Navigation
 -  [x] Dynamic catalog
 -  [x] Dynamic Home Latest Games
+-  [] Add details page
