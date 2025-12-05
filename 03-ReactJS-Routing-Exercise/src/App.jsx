@@ -10,6 +10,7 @@ import GameCreate from "./components/game-create/GameCreate";
 import Register from "./components/register/Register";
 import Login from "./components/login/Login";
 import Logout from "./components/logout/Logout";
+import Edit from "./components/edit/Edit";
 
 function App() {
    const [registeredUsers, setRegisteredUsers] = useState([]);
@@ -51,6 +52,7 @@ function App() {
             <Route path="/catalog" element={<Catalog />} />
             <Route path="games/:gameId/details" element={<Details />} />
             <Route path="games/create" element={<GameCreate />} />
+            <Route path="games/:gameId/edit" element={<Edit />} />
             <Route path="/register" element={<Register onRegister={registerHandler} />} />
             <Route path="/login" element={<Login onLogin={loginHandler} />} />
             <Route path="/logout" element={<Logout onLogout={logoutHandler} />} />
