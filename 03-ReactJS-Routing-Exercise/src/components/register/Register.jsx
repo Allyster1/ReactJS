@@ -16,11 +16,15 @@ export default function Register({ onRegister }) {
          return alert("Password does not match!");
       }
 
-      // Register User
-      onRegister(email);
+      try {
+         // Register User
+         onRegister(email, password);
 
-      // Redirect to home page
-      navigate("/");
+         // Redirect to home page
+         navigate("/");
+      } catch (err) {
+         alert(err.message);
+      }
    };
 
    return (
