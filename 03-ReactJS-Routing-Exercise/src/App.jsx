@@ -8,14 +8,33 @@ import Catalog from "./components/catalog/Catalog";
 import Details from "./components/details/Details";
 import GameCreate from "./components/game-create/GameCreate";
 import Register from "./components/register/Register";
+import Login from "./components/login/Login";
 
 function App() {
+   const [registeredUsers, setRegisteredUsers] = useState([]);
    const [user, setUser] = useState(null);
 
-   const registerHandler = (email) => {
-      setUser({
-         email,
-      });
+   const registerHandler = (email, password) => {
+      if (registeredUsers.some((user) => user.email === email)) {
+         throw new Error("Email is taken!");
+      }
+
+      const newUser = { email, password };
+
+      setRegisteredUsers((state) => [...state, newUser]);
+
+      // Login user after register
+      setUser(newUser);
+   };
+
+   const loginHandler = (email, password) => {
+      const user = registeredUsers.find((u) => u.email === email && u.password === password);
+
+      if (!user) {
+         throw new Error("Invalid email or password!");
+      }
+
+      setUser(user);
    };
 
    return (
@@ -27,7 +46,8 @@ function App() {
             <Route path="/catalog" element={<Catalog />} />
             <Route path="games/:gameId/details" element={<Details />} />
             <Route path="games/create" element={<GameCreate />} />
-            <Route path="/register" element={<Register user={user} onRegister={registerHandler} />} />
+            <Route path="/register" element={<Register onRegister={registerHandler} />} />
+            <Route path="/login" element={<Login onLogin={loginHandler} />} />
          </Routes>
 
          <Footer />
