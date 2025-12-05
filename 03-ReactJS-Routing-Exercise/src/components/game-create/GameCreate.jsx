@@ -1,8 +1,6 @@
 import { useNavigate } from "react-router";
 import request from "../../utils/request";
 
-const API_URL = "http://localhost:3030/jsonstore/games";
-
 export default function GameCreate() {
    const navigate = useNavigate();
 
@@ -26,7 +24,7 @@ export default function GameCreate() {
 
       // const result = await response.json();
 
-      const result = request(API_URL, "POST", data);
+      const result = request("/games", "POST", data);
 
       console.log(result);
       navigate("/games");
