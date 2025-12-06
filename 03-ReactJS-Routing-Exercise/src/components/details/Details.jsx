@@ -9,6 +9,7 @@ export default function Details({ user }) {
    const navigate = useNavigate();
    const [game, setGame] = useState({});
    const { gameId } = useParams();
+   const [refresh, setRefresh] = useState(false);
 
    useEffect(() => {
       fetch(`${API_URL}/${gameId}`)
@@ -32,6 +33,10 @@ export default function Details({ user }) {
       } catch (err) {
          alert("Unable to delete game", err.message);
       }
+   };
+
+   const refreshHandler = () => {
+      setRefresh((state) => !state);
    };
 
    return (
@@ -76,10 +81,10 @@ export default function Details({ user }) {
                </button>
             </div>
 
-            <DetailsComments />
+            <DetailsComments refresh={refresh} />
          </div>
 
-         {user && <CreateComment user={user} />}
+         {user && <CreateComment user={user} onCreate={refreshHandler} />}
       </section>
    );
 }

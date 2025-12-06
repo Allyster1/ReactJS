@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import request from "../../../utils/request";
 
-export default function DetailsComments() {
+export default function DetailsComments({ refresh }) {
    const [comments, setComments] = useState([]);
    const { gameId } = useParams();
 
@@ -11,7 +11,7 @@ export default function DetailsComments() {
          const gameComments = Object.values(result).filter((comment) => comment.gameId === gameId);
          setComments(gameComments);
       });
-   }, [gameId]);
+   }, [gameId, refresh]);
 
    return (
       <div className="details-comments">
